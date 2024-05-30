@@ -1,7 +1,7 @@
 import ollama
 import time
 
-nouveauTypage:str  = "test"
+# nouveauTypage:str  = "test"
 
 def generate(prompt: str, model_name: str) -> str:
     startTime = time.time()
