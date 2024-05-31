@@ -1,7 +1,9 @@
 import numpy as np
 from faster_whisper import WhisperModel
+import sys
+sys.path.append('../')
 
-from modules.gpuConfig import gpu_detection
+from SpeachToSpeach.speachToSpeach.modules.gpuConfig import gpu_detection
 import logging
 
 class SpeachToText:

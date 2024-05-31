@@ -7,7 +7,7 @@ import os
 
 load_dotenv()
 AUDIOPATH = os.getenv("AUDIOPATH", "./")
-
+print(f"AUDIOPATH : {AUDIOPATH}")
 recordings = []
 
 class AudioRecorder:
@@ -70,8 +70,11 @@ class AudioRecorder:
         # Combiner tous les morceaux enregistrés
         if self.recordings:
             audio = np.concatenate(self.recordings, axis=0)
-            print(type(audio))
-            wavio.write(f"{AUDIOPATH}enregistrement_continue.wav", audio, self.fs, sampwidth=2)
+            # print(type(audio))
+            output_path = os.path.join(AUDIOPATH, "enregistrement_continue.wav")
+            os.makedirs(os.path.dirname(output_path), exist_ok=True)
+            wavio.write(output_path, audio, self.fs, sampwidth=2)
+            # wavio.write(f"{AUDIOPATH}enregistrement_continue.wav", audio, self.fs, sampwidth=2)
         else:
             print("Aucune donnée enregistrée.")
 

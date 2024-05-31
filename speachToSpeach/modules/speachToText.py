@@ -1,6 +1,6 @@
 from faster_whisper import WhisperModel
 import numpy as np
-from modules.gpuConfig import gpu_detection
+from speachToSpeach.modules.gpuConfig import gpu_detection
 import os
 from dotenv import load_dotenv
 load_dotenv()

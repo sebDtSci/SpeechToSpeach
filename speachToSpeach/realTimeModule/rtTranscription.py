@@ -1,7 +1,7 @@
 import time
 import numpy as np
-from realTimeModule.recorder import AudioRecorder
-from realTimeModule.tts import SpeachToText
+from recorder import AudioRecorder
+from tts import SpeachToText
 
 def main():
     audio_recorder = AudioRecorder()
