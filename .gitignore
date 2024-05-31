@@ -3,3 +3,4 @@ envAudio/
 data/
 
 *.csv
+__pychache__
