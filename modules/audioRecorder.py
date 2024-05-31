@@ -25,10 +25,10 @@ class AudioRecorder:
 
     def callback(self, indata: np.ndarray, frames: int, time, status: dict) -> None:
         
-        #FIXME: fix this methode to interrupt the recording when the user stops speaking
+        # FIXME: fix this methode to interrupt the recording when the user stops speaking
         if status:
             print(status)
-        # calcule la norme du vecteur audio et on la divise par la racine carré du nombre d'élément pour normaliser
+        # NOTE: calcule la norme du vecteur audio et on la divise par la racine carré du nombre d'élément pour normaliser
         volume = np.linalg.norm(indata) / np.sqrt(len(indata))
         if volume < self.silence_threshold:
             self.silence_count += frames
@@ -44,7 +44,7 @@ class AudioRecorder:
             self.recordings.append(indata.copy())
         else:
             self.stop()
-
+            
     def start(self) -> None:
         """
         Starts the audio recording.
