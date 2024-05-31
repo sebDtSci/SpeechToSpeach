@@ -14,13 +14,15 @@ def generate(prompt: str, model_name: str) -> str:
     Returns:
         tuple[str, float]: A tuple containing the generated text and the execution time in seconds.
     """
-    startTime = time.time()
+    startTime:float = time.time()
+    with open('Context.txt', 'r') as f:
+        context = f.read()
     res = ollama.generate(
         model=model_name,
-        prompt=prompt
+        prompt=context+' '+prompt
     )
-    endtime = time.time()
-    exTime = endtime - startTime
+    endtime:float = time.time()
+    exTime:float = endtime - startTime
     return res, exTime
 
 if __name__ == "__main__":

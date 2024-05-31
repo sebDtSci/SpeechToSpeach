@@ -12,7 +12,7 @@ recordings = []
 
 class AudioRecorder:
 
-    def __init__(self, fs: int = 44100, channels: int = 2, dtype: type = np.int16, silence_threshold: float = 1000.0, silence_duration: float = 2.0) -> None:
+    def __init__(self, fs: int = 44100, channels: int = 2, dtype: type = np.int16, silence_threshold: float = 1.0, silence_duration: float = 2.0) -> None:
         self.fs = fs
         self.channels = channels
         self.dtype = dtype
@@ -25,7 +25,7 @@ class AudioRecorder:
 
     def callback(self, indata: np.ndarray, frames: int, time, status: dict) -> None:
         
-        # TODO: fix this methode to interrupt the recording when the user stops speaking
+        #FIXME: fix this methode to interrupt the recording when the user stops speaking
         if status:
             print(status)
         # calcule la norme du vecteur audio et on la divise par la racine carré du nombre d'élément pour normaliser
@@ -70,6 +70,7 @@ class AudioRecorder:
         # Combiner tous les morceaux enregistrés
         if self.recordings:
             audio = np.concatenate(self.recordings, axis=0)
+            print(type(audio))
             wavio.write(f"{AUDIOPATH}enregistrement_continue.wav", audio, self.fs, sampwidth=2)
         else:
             print("Aucune donnée enregistrée.")
