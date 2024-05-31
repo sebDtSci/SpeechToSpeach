@@ -1,6 +1,10 @@
 #folder
 envAudio/
 data/
+build/
+dist/
 
+#file
 *.csv
 __pychache__
+*.egg-info
