@@ -1,5 +1,4 @@
 import sounddevice as sd
-import wavio
 import numpy as np
 
 class AudioRecorder:
@@ -39,11 +38,15 @@ class AudioRecorder:
         except Exception as e:
             print(f"An error occurred while starting the recording: {e}")
 
-    def get_audio_chunk(self):
+    def get_audio_chunk(self, chunk_duration=10):
         if self.recordings:
             audio = np.concatenate(self.recordings, axis=0)
-            self.recordings = []  # Clear recordings after fetching
-            return audio
+            chunk_size = self.fs * chunk_duration
+            if len(audio) >= chunk_size:
+                chunk = audio[:chunk_size]  # Get the first chunk_duration seconds of audio
+                self.recordings = [audio[chunk_size:]]  # Keep the rest
+                return chunk
+        return None
 
     def stop(self) -> None:
         """Stops the audio recording."""
