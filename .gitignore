@@ -3,9 +3,9 @@ envAudio/
 # data/
 build/
 dist/
+__pycache__/
 
 #file
 *.csv
-__pychache__
 *.egg-info
 .wav
