@@ -1,6 +1,8 @@
 from faster_whisper import WhisperModel
 import numpy as np
-from speachToSpeach.modules.gpuConfig import gpu_detection
+import sys
+sys.path.append('../')
+from SpeachToSpeach.speachToSpeach.modules.gpuConfig import gpu_detection
 import os
 from dotenv import load_dotenv
 load_dotenv()

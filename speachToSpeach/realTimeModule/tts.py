@@ -11,6 +11,13 @@ class SpeachToText:
         self.modelSize = modelSize
         self.device = gpu_detection()
         self.model = self._initModel()
+        self._stopWords:list[str] = [" Thanks for watching!"]
+
+    def _blankTest(self, text:str) -> bool:
+        if text in self._stopWords:
+            return True
+        else:
+            return False
 
     def _initModel(self) -> WhisperModel:
         logging.info(f'device: {self.device}')
@@ -19,4 +26,5 @@ class SpeachToText:
     def transcribe(self, audio_segment: np.ndarray) -> None:
         segments, info = self.model.transcribe(audio_segment)
         text = "".join([segment.text for segment in segments])
-        print(text)
+        if not self._blankTest(text):
+            print(text)
