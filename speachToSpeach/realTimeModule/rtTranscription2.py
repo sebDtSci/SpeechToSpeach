@@ -12,11 +12,15 @@ def main():
     try:
         while True:
             audio_chunk = audio_recorder.get_audio_chunk()
-            speech_to_text.transcribe(audio_chunk)
-            time.sleep(0.1)  # Ajuster pour la latence désirée
+            if audio_chunk is not None:
+                speech_to_text.transcribe(audio_chunk)
+            time.sleep(0.1)  # Adjust for desired latency
     except KeyboardInterrupt:
         audio_recorder.stop()
         print("Stopped recording.")
+    except Exception as e:
+        audio_recorder.stop()
+        print(f"An error occurred: {e}")
 
 if __name__ == "__main__":
     main()
