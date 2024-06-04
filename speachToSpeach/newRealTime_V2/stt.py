@@ -16,7 +16,7 @@ stream = audio.open(format=FORMAT, channels=CHANNELS,
                     rate=RATE, input=True,
                     frames_per_buffer=CHUNK)
 
-model = WhisperModel("base")
+model = WhisperModel("medium")
 
 print("Transcription en temps réel...")
 
