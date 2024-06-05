@@ -1,5 +1,0 @@
-faster-whisper==1.0.2
-numpy==1.26.4
-python-dotenv==1.0.1
-sounddevice==0.4.7
-wavio==0.0.9

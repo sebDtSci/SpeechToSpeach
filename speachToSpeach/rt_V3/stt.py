@@ -2,6 +2,7 @@ import os
 from faster_whisper import WhisperModel
 import time
 import logging
+from dotenv import load_dotenv
 
 class SpeechToText:
 
@@ -32,8 +33,10 @@ class SpeechToText:
                 logging.error(f"Transcription failed: {e}")
     
 if __name__ == "__main__":
-    AUDIOPATH = os.getenv("AUDIOPATH", "./")
-    TEXTPATH = os.getenv("TEXTPATH", "./")
+    load_dotenv()
+
+    AUDIOPATH = os.getenv("AUDIOPATHW", "./")
+    TEXTPATH = os.getenv("TEXTPATHW", "./")
     output_audio_file = os.path.join(AUDIOPATH, "enregistrement_continue.wav")
     output_text = os.path.join(TEXTPATH, "sortie.txt")
     
