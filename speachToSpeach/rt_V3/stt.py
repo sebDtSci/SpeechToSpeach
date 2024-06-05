@@ -30,13 +30,6 @@ class SpeechToText:
                 time.sleep(0.1)
             except Exception as e:
                 logging.error(f"Transcription failed: {e}")
-
-
-
-        # with open(self.input_audio, 'rb') as f:
-        #     audio_data = f.read()
-        # segments, info = self.model.transcribe(self.input_audio)
-        # return segments, info
     
 if __name__ == "__main__":
     AUDIOPATH = os.getenv("AUDIOPATH", "./")
