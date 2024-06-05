@@ -1,11 +1,11 @@
-AUDIOPATH = '/Users/athena/Documents/projetGit/SpeachToSpeach/data/audio'
 import os
 from recorder import AudioRecorder
 from audioToText import SpeechToText
 import time
 
-# AUDIOPATH = os.getenv("AUDIOPATH", "./")
-AUDIOPATH = '/Users/athena/Documents/projetGit/SpeachToSpeach/data/audio'
+AUDIOPATH = os.getenv("AUDIOPATH", "./")
+# AUDIOPATH = '/Users/athena/Documents/projetGit/SpeachToSpeach/data/audio'
+# AUDIOPATH = 'C:\\Users\\stadiello\\Documents\\projet\\SpeachToSpeach\\data\\audio\\'
 output_audio_file = os.path.join(AUDIOPATH, "enregistrement_continue.wav")
 
 recorder = AudioRecorder()

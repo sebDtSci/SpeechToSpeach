@@ -7,7 +7,7 @@ import os
 
 load_dotenv()
 AUDIOPATH = os.getenv("AUDIOPATH", "./")
-print(f"AUDIOPATH : {AUDIOPATH}")
+# AUDIOPATH = 'C:\\Users\\stadiello\\Documents\\projet\\SpeachToSpeach\\data\\audio\\'
 recordings = []
 
 class AudioRecorder:
