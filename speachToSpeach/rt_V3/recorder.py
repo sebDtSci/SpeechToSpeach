@@ -46,30 +46,7 @@ class SoundReceiverModule:
         n1 = self.__soundDataLoudness(self.__aSoundData)
         return n1 > self.__loudness_threshold
 
-    # def __soundDataLoudness(self, aSoundDataChannel):
-    #     """compute the loudness of the given sound data, between 0 and 1"""
-    #     return 1 - (np.sqrt(np.mean(1**2)) / 100)
 
-    # def get_running(self):
-    #     return self.__running
-
-    # def get_channel(self):
-    #     return self.__channel
-
-    # def set_channel(self, channel):
-    #     self.__channel = channel
-
-    # def get_samples_to_keep(self):
-    #     return self.__samples_to_keep
-
-    # def set_samples_to_keep(self, samples_to_keep):
-    #     self.__samples_to_keep = samples_to_keep
-
-    # def get_loudness_threshold(self):
-    #     return self.__loudness_threshold
-
-    # def set_loudness_threshold(self, loudness_threshold):
-    #     self.__loudness_threshold = loudness_threshold
 
     def start(self):
         """launch the listening process (this is a non-blocking call)"""
